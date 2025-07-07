@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRFlow System - Opret Profil</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; background-color: #f8f9fa; color: #333; }
+        h1 { color: #000; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { display: block; width: 100%; padding: 15px; margin-top: 25px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.2s; }
+        button:hover { background-color: #0056b3; }
+        #qr-code-container { margin-top: 20px; text-align: center; }
+        #qr-code-container img { max-width: 200px; margin: 10px auto; border: 5px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        small { display: block; margin-top: 10px; text-align: center; color: #666; }
+    </style>
+</head>
+<body>
+
+    <h1>QRFlow Oprettelse</h1>
+    <p>Indtast oplysninger for at generere en permanent digital profil til dit produkt.</p>
+
+    <label for="owner-email">Din E-mail (til ejerskab)</label>
+    <input type="email" id="owner-email" placeholder="f.eks. ditnavn@gmail.com" required>
+
+    <label for="title">Titel</label>
+    <input type="text" id="title" placeholder="f.eks. Brugt Cykel, Model X" required>
+
+    <label for="price">Pris (i DKK)</label>
+    <input type="number" id="price" placeholder="f.eks. 1500" required>
+
+    <label for="description">Beskrivelse</label>
+    <textarea id="description" rows="4" placeholder="Beskriv produktets stand, historik, osv."></textarea>
+    
+    <label for="image-url">Billede URL (valgfrit)</label>
+    <input type="text" id="image-url" placeholder="https://.../billede.jpg">
+    
+    <button id="generate-btn">Generér & Download ZIP</button>
+
+    <div id="qr-code-container" style="display:none;">
+        <h2>Din Permanente QR-kode</h2>
+        <div id="qr-code"></div>
+        <small>Dette er din profils permanente adgangsnøgle. ZIP-fil downloades nu.</small>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="admin.js"></script>
+
+</body>
+</html>
